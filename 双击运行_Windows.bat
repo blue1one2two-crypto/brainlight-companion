@@ -1,0 +1,3 @@
+@echo off
+echo 正在启动 伴生书童-BrainLight_Companion...
+start dist/index.html

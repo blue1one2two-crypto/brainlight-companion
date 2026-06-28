@@ -1,0 +1,258 @@
+@import "tailwindcss";
+
+:root {
+  --primary-purple: #8A2BE2;
+  --secondary-blue: #00D2FF;
+  --neon-green: #39FF14;
+  --neon-pink: #FF007F;
+  --neon-gold: #FFD700;
+  --divine-white: #FFFFFF;
+
+  /* Dark mode variables */
+  --bg-color: #020205;
+  --text-color: #f1f1f7;
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --text-muted-more: rgba(255, 255, 255, 0.25);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-heavy: rgba(255, 255, 255, 0.12);
+  --sidebar-bg: rgba(0, 0, 0, 0.6);
+  --panel-bg: rgba(10, 10, 18, 0.45);
+  --panel-bg-heavy: rgba(8, 8, 14, 0.85);
+  --header-bg: rgba(0, 0, 0, 0.2);
+  --input-bg: rgba(255, 255, 255, 0.03);
+  --input-border: rgba(255, 255, 255, 0.1);
+  --button-bg: rgba(255, 255, 255, 0.05);
+  --button-hover-bg: rgba(255, 255, 255, 0.12);
+  --gradient-bg-from: rgba(30, 11, 54, 0.25);
+}
+
+.light-theme {
+  /* Light mode variables */
+  --bg-color: #f6f6fc;
+  --text-color: #1e1e24;
+  --text-muted: rgba(30, 30, 36, 0.6);
+  --text-muted-more: rgba(30, 30, 36, 0.4);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-heavy: rgba(0, 0, 0, 0.12);
+  --sidebar-bg: rgba(255, 255, 255, 0.7);
+  --panel-bg: rgba(255, 255, 255, 0.55);
+  --panel-bg-heavy: rgba(255, 255, 255, 0.85);
+  --header-bg: rgba(255, 255, 255, 0.4);
+  --input-bg: rgba(0, 0, 0, 0.03);
+  --input-border: rgba(0, 0, 0, 0.1);
+  --button-bg: rgba(0, 0, 0, 0.04);
+  --button-hover-bg: rgba(0, 0, 0, 0.08);
+  --gradient-bg-from: rgba(138, 43, 226, 0.08);
+}
+
+/* Light theme Tailwind overrides to avoid editing thousands of Tailwind classes */
+.light-theme .bg-black\/60 {
+  background-color: var(--sidebar-bg) !important;
+}
+.light-theme .bg-black\/40 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+.light-theme .bg-black\/20 {
+  background-color: var(--header-bg) !important;
+}
+.light-theme .bg-black\/30 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+.light-theme .bg-black\/75 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+.light-theme .bg-black\/90 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+.light-theme .bg-white\/5 {
+  background-color: var(--button-bg) !important;
+}
+.light-theme .bg-white\/10 {
+  background-color: var(--button-hover-bg) !important;
+}
+.light-theme .border-white\/5 {
+  border-color: var(--border-color) !important;
+}
+.light-theme .border-white\/10 {
+  border-color: var(--border-heavy) !important;
+}
+.light-theme .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+.light-theme .text-white\/30 {
+  color: var(--text-muted-more) !important;
+}
+.light-theme .text-white\/40 {
+  color: var(--text-muted) !important;
+}
+.light-theme .text-white\/50 {
+  color: var(--text-muted) !important;
+}
+.light-theme .text-white\/60 {
+  color: var(--text-muted) !important;
+}
+.light-theme .text-white\/70 {
+  color: var(--text-color) !important;
+  opacity: 0.75;
+}
+.light-theme .text-white\/80 {
+  color: var(--text-color) !important;
+  opacity: 0.85;
+}
+.light-theme .text-white\/90 {
+  color: var(--text-color) !important;
+  opacity: 0.95;
+}
+.light-theme .text-white {
+  /* Keep standard text white inside dark bubbles, but general text wraps to var(--text-color) */
+}
+
+select {
+  color-scheme: dark;
+}
+
+select option {
+  background-color: #15151e !important;
+  color: #f1f1f7 !important;
+}
+
+.light-theme select {
+  color-scheme: light;
+}
+
+.light-theme select option {
+  background-color: #ffffff !important;
+  color: #1e1e24 !important;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Outfit', 'Inter', sans-serif;
+  overflow: hidden;
+  user-select: none;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 纯白闪速 (The Flash) 特效层 */
+.flash-layer {
+  position: fixed;
+  inset: 0;
+  background-color: var(--divine-white);
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+}
+
+canvas {
+  display: block;
+}
+
+/* Glassmorphism Styling System */
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18);
+}
+
+.glass-panel-heavy {
+  background: var(--panel-bg-heavy);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-heavy);
+  border-radius: 20px;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35);
+}
+
+.glass-input {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  color: var(--text-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-input:focus {
+  background: var(--input-bg);
+  border-color: rgba(138, 43, 226, 0.5);
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.25);
+  outline: none;
+}
+
+.glass-button {
+  background: var(--button-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-button:hover {
+  background: var(--button-hover-bg);
+  border-color: var(--border-heavy);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.glass-button:active {
+  transform: scale(0.98);
+}
+
+/* Custom Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Animation Utilities */
+@keyframes neon-pulse-purple {
+  0%, 100% { box-shadow: 0 0 10px rgba(138, 43, 226, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(138, 43, 226, 0.5); }
+}
+
+@keyframes text-shine {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-pulse-purple {
+  animation: neon-pulse-purple 3s infinite;
+}
+
+.gradient-text-glow {
+  background: linear-gradient(90deg, #8A2BE2, #00D2FF, #FF007F, #8A2BE2);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shine 6s linear infinite;
+}
+
+/* Matrix rain simulation wrapper */
+.matrix-cascade {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  line-height: 1;
+  text-shadow: 0 0 4px rgba(57, 255, 20, 0.8);
+}
